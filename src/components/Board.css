@@ -1,0 +1,49 @@
+.Board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 500px;
+  justify-content: center;
+  align-content: center;
+}
+
+.winMessage {
+  width: 400px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.blueSign {
+  background: -webkit-linear-gradient(rgb(36, 213, 247), rgb(111, 36, 243));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.redSign {
+  background: -webkit-linear-gradient(rgb(255, 175, 179), rgb(255, 61, 157));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.reset-btn {
+  width: 130px;
+  color: white;
+  background-image: linear-gradient(rgb(138, 70, 255), rgb(215, 61, 253));
+}
+
+.btn {
+  background-color: #4caf50;
+  border: none;
+  width: 110px;
+  color: white;
+  background-color: rgb(56, 15, 191);
+  font-size: 16px;
+  padding: 7px 20px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  color: #ffffff;
+}
