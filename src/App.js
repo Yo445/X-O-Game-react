@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Bord from "./components/Bord";
 
 function App() {
+  
   return (
     <div className="playground">
       <Bord />
+      
     </div>
   );
 }

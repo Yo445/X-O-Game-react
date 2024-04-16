@@ -2,22 +2,21 @@ import React, { useState } from "react";
 import Card from "./Card";
 import "./Board.css";
 //import { Button } from '@mui/material';
-
+const defaultBoard = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
 
 const Bord = () => {
-  const defaultBoard = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
   const [values, togglevalues] = useState(defaultBoard);
   const [turn, changeTurn] = useState(true);
   const [disable, toggledisable] = useState(false);
   const [winmessage, setmessage] = useState("");
 
-  const win = (i) => {
+  const win = (i, data) => {
     let char = turn ? "X" : "O";
     // vertical check
     if (
-      values[i] === char &&
-      values[(i + 3) % 9] === char &&
-      values[(i + 6) % 9] === char
+      data[i] === char &&
+      data[(i + 3) % 9] === char &&
+      data[(i + 6) % 9] === char
     ) {
       return true;
     }
@@ -25,17 +24,17 @@ const Bord = () => {
     let weight = i > 2 ? 3 : 0;
     weight = i > 5 ? 6 : weight;
     if (
-      values[(i % 3) + weight] === char &&
-      values[((i + 1) % 3) + weight] === char &&
-      values[((i + 2) % 3) + weight] === char
+      data[(i % 3) + weight] === char &&
+      data[((i + 1) % 3) + weight] === char &&
+      data[((i + 2) % 3) + weight] === char
     ) {
       return true;
     }
     // diagonal check
-    if (values[0] === char && values[4] === char && values[8] === char) {
+    if (data[0] === char && data[4] === char && data[8] === char) {
       return true;
     }
-    if (values[2] === char && values[4] === char && values[6] === char) {
+    if (data[2] === char && data[4] === char && data[6] === char) {
       return true;
     }
     return false;
@@ -45,7 +44,7 @@ const Bord = () => {
     if (disable) {
       return;
     }
-    let data = values;
+    let data = [...values];
     if (turn && values[i] === " ") {
       data[i] = "X";
     } else if (values[i] === " ") {
@@ -55,12 +54,13 @@ const Bord = () => {
     }
     togglevalues(data);
     changeTurn(!turn);
-    if (!values.includes(" ")) {
-      setmessage(`Match is Draw`);
-    }
-    if (win(i)) {
+
+    if (win(i, data)) {
       toggledisable(true);
       setmessage(`${turn ? "X" : "O"} Wins`);
+    }
+    if (!data.includes(" ")) {
+      setmessage(`Match is Draw`);
     }
   };
 

@@ -1,26 +1,59 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  background-color: rgb(249, 251, 252);
+  background-color: black; /* Change background color to black */
+  color: white; /* Change text color to white */
 }
 
-.playground {
+.app {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-container input {
+  padding: 12px; /* Increase input padding */
+  width: 90%; /* Increase input width */
+  margin-right: 10px;
+}
+
+.search-container button {
+  padding: 12px 16px; /* Increase button padding */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.show-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 90vh;
-  width: 100vw;
   flex-wrap: wrap;
+  justify-content: space-between; /* Ensure even spacing between cards */
 }
 
-.heading {
-  width: 100vw;
-  font-weight: 400;
-  background: -webkit-linear-gradient(rgb(28, 97, 202), rgb(26, 189, 230));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.show-card {
+  width: calc(50% - 20px);
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #333; /* Change card background color */
+}
+
+.show-card h2 {
+  font-size: 20px; /* Increase title font size */
+  margin-bottom: 10px;
+}
+
+.show-card img {
+  width: 100%;
+  height: auto;
+}
+
+.loading {
   text-align: center;
+  margin-top: 20px;
 }
